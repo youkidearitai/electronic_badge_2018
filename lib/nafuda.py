@@ -107,6 +107,16 @@ class Nafuda:
 
         self.draw_image_buffer(image_buffer, orientation)
 
+    def draw_partial_window(self, image_buffer, drawX, drawY, drawW, drawL, dtm, orientation=0):
+        self.epd.set_partial_window(
+            self.epd.get_partial_frame_buffer(image_buffer),
+            drawX,
+            drawY,
+            drawW,
+            drawL,
+            dtm
+        )
+
     def draw_image_buffer(self, image_buffer, orientation=0):
 
         # remove Alpha
