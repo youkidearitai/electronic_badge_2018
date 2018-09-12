@@ -345,11 +345,6 @@ class EPD:
         # Image must be in mode 1.
         image_monocolor = image.convert('1')
         imwidth, imheight = image_monocolor.size
-        """
-        if imwidth != self.width or imheight != self.height:
-            raise ValueError('Image must be same dimensions as display \
-                ({0}x{1}).'.format(self.width, self.height))
-        """
 
         pixels = image_monocolor.load()
         for y in range(image.size[1]):

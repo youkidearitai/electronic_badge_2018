@@ -107,9 +107,15 @@ class Nafuda:
 
         self.draw_image_buffer(image_buffer, orientation)
 
+    def get_partial_frame_buffer(self, image_buffer):
+        return self.epd.get_partial_frame_buffer(image_buffer)
+
     def draw_partial_window(self, image_buffer, drawX, drawY, drawW, drawL, dtm, orientation=0):
+        """
+        draw_partial_window image_bufferは予めget_partial_frame_bufferでかけとく
+        """
         self.epd.set_partial_window(
-            self.epd.get_partial_frame_buffer(image_buffer),
+            image_buffer,
             drawX,
             drawY,
             drawW,
